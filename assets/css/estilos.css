@@ -40,6 +40,13 @@ body {
     flex-direction: column;
     width: 75vw;
     height: 100vh;
+    position:absolute;
+    left:-100vw;
+    transition: .25s
+}
+.menu-lateral--ativo{
+    left:0;
+    transition: .25s
 }
 
 .menu-lateral__logo {
@@ -54,6 +61,12 @@ body {
     display: flex;
     height: 64px;
     padding-left: 64px;
+}
+
+.menu-lateral__link:hover{
+    color:#ffffff;
+    padding-left:56px;
+    border-left:8px solid #ffffff;
 }
 .menu-lateral__link::before {
     content: "";
@@ -72,7 +85,7 @@ body {
 .menu-lateral__link--picos::before{
     content:"\e909";
 }
-.menu-lateral__link--integrantes-::before{
+.menu-lateral__link--integrantes::before{
     content:"\e903";
 }
 .menu-lateral__link--camisas::before{
