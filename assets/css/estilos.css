@@ -8,6 +8,12 @@ body {
     font-family: 'Open Sans', 'icones', sans-serif;
     color: #FFFFFF;
 }
+@media screen and (min-width: 1440px){
+    body{
+        display:grid;
+        grid-template-columns:auto 1fr;
+    }
+}
 
 /* CABEÇALHO */
 .cabecalho {
@@ -31,6 +37,53 @@ body {
 
 .cabecalho__logo {
     width: 40px;
+}
+.cabecalho__perfil{
+    display:none;
+}
+
+@media screen and (min-width:1440px){
+    .cabecalho{
+        background-color:#1D232A ;
+        box-sizing: border-box;
+        display:grid;
+        column-gap: 32px;
+        grid-template-columns: 1fr auto;
+        height:80px;
+        padding: 16px 60px;
+        grid-column:2;
+    }
+    .cabecalho__menu{
+        display:none;	
+    }
+    .cabecalho__logo{
+        display:none
+    }
+    .cabecalho__perfil{
+        display:grid;
+        grid-template-columns: repeat(3,auto);
+        column-gap:8px;
+        align-items:center;
+        justify-self: flex-end;
+        color:#95999C;
+        padding:8px 32px ;
+        border-right:1px solid #95999C;
+    }
+    .cabecalho__perfil::before{
+        content:"";
+        display:block;
+        width:32px;
+        height:32px;
+        background-image: url(../img/profile_2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .cabecalho__perfil::after{
+        content:"\e90d";
+        color:#ffffff;
+        font-size:1.5rem;
+    }
 }
 
 /* MENU LATERAL */
@@ -107,6 +160,14 @@ body {
     color: #FFFFFF;
 }
 
+@media screen and (min-width:1440px){
+    .menu-lateral{
+        position: static;
+        width:200px;
+        grid-column:1;
+        grid-row:1 / span 2;
+    }
+}
 /* MAIN */
 .principal {
     display:grid;
@@ -118,6 +179,18 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
 }
+
+@media screen and (min-width: 1440px){
+    .principal{
+        display:grid;
+        grid-template-columns: auto 1fr auto;
+        column-gap: 32px;
+        padding: 16px 60px;
+        grid-column:2;
+    }
+}
+    
+
 
 /* ESTRUTURA BÁSICA DO CARTÃO */
 .cartao {
@@ -187,12 +260,59 @@ body {
 .cartao__botao--destaque::before{
     margin-right: 8px;
 }
+.cartao--recentes{
+    display:none;
+}
+@media screen and (min-width:1440px){
+    .cartao--recentes{
+        display:grid;
+        grid-template-columns: repeat(2,auto);
+        align-items: center;
+        row-gap: 24px;
+        width:256px;
+        padding:16px;
+        box-sizing: border-box;
+    }
+    .cartao--recentes .cartao__titulo{
+        grid-column:auto;
+    }
+    .cartao__link{
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #0480DC;
+        justify-self: flex-end;
+    }
+    .cartao__lista{
+        display:grid;
+        row-gap: 16px;
+        grid-column: span 2;
+    }
+    .cartao__item{
+        display:grid;
+        grid-template-columns: auto 1fr;
+        gap: 8px;
+    }
+    .cartao__item-thumbnail{
+        width:32px;
+        grid-row: span 2;
+    }
+    .cartao__item-titulo{
+        font-size:0.9rem;
+        line-height: 1.2rem;
+        font-weight: 400;
+    }
+    .cartao__item-perfil{
+        font-size: 0.8rem;
+        color: #95999C;
+    }
+}
+
 /* SEÇÃO */
 .secao{
     display:grid;
     gap:16px;
 }
-secao__titulo{
+.secao__titulo{
     font-size:1.2rem;
     font-weight:700;
 }
