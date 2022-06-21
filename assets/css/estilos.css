@@ -184,6 +184,13 @@ body {
     .principal{
         display:grid;
         grid-template-columns: auto 1fr auto;
+        grid-template-areas:
+        "titulo-pagina titulo-pagina titulo-pagina"
+        "destaque-video destaque-video videos-recentes"
+        "secao-videos secao-videos secao-videos"
+        "produtos-recentes destaque-produtos destaque-produtos"
+        "secao-produtos secao-produtos secao-produtos"
+        ;
         column-gap: 32px;
         padding: 16px 60px;
         grid-column:2;
@@ -203,6 +210,9 @@ body {
 .cartao--destaque{
     margin-bottom: 16px;
 }
+.cartao__imagem--desktop{
+    display:none;
+}
 .cartao__conteudo {
     display:grid;
     grid-template-columns: auto 1fr;
@@ -219,6 +229,7 @@ body {
 .cartao__destaque{
   grid-column: span 2;  
 }
+
 .cartao__perfil {
     color: #95999C;
     font-size: 0.9rem;
@@ -272,6 +283,7 @@ body {
         width:256px;
         padding:16px;
         box-sizing: border-box;
+        align-self: flex-start;
     }
     .cartao--recentes .cartao__titulo{
         grid-column:auto;
@@ -305,14 +317,61 @@ body {
         font-size: 0.8rem;
         color: #95999C;
     }
+    .cartao__imagem--desktop{
+        display:block;
+    }
+    .cartao__imagem--mobile{
+        display:none;
+    }
+    .cartao--destaque{
+        margin-bottom:0;
+    }
+    .cartao__botao--destaque{
+        grid-column:auto;
+        padding:16px 8px;
+    }
 }
+
 
 /* SEÇÃO */
 .secao{
     display:grid;
     gap:16px;
 }
-.secao__titulo{
-    font-size:1.2rem;
-    font-weight:700;
+
+@media screen and (min-width:1440px){
+    .secao{
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .secao__titulo{
+        grid-column:span 4;
+    }
+}
+@media screen and (min-width:1440px){
+    /* OS GRID AREAS EXISTEM SOMENTE NA VERSÃO DESKTOP */
+    .destaque-video{
+        grid-area:destaque-video;
+    }   
+
+    .videos-recentes{
+        grid-area:videos-recentes;
+    }
+    .secao-videos{
+        grid-area: secao-videos;
+    }
+
+    .secao__titulo{
+        font-size:1.2rem;
+        font-weight:700;
+    }
+    .destaque-produtos{
+        grid-area:destaque-produtos
+    }
+    .produtos-recentes{
+        grid-area:produtos-recentes;
+    }
+    .secao-produtos{
+        grid-area:secao-produtos;
+    }
+
 }
